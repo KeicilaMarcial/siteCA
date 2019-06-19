@@ -16,8 +16,8 @@
 });
 */
 
-Route::get('/index','IndexController@index')->name('index');
-
+Route::get('/','IndexController@index')->name('index');
+//Não encosta no meu codigo
 Auth::routes();
 //Todas as rotas que precisam de autentificação devem ser colocadas dentro nessa rota.
 Route::group(['middleware' => ['auth']], function () {

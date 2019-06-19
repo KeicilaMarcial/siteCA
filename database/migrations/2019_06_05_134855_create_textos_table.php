@@ -15,7 +15,7 @@ class CreateTextosTable extends Migration
     {
         Schema::create('textos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('descricao');
+            $table->text('descricao');
             $table->BigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
