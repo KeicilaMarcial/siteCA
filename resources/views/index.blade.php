@@ -8,7 +8,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <link rel="icon" href="{{ asset('assets/site/img/favicon.png')}}" type="image/png" />
-    <title>Edustage Education</title>
+    <title>CACCOMP</title>
     <!-- Bootstrap CSS -->
 
     <link rel="stylesheet" href="{{asset('assets/site/css/bootstrap.css')}}"/>
@@ -93,15 +93,11 @@
             <div class="col-lg-12">
               <div class="banner_content text-center">
                 <p class="text-uppercase">
-                  Best online education service In the world
+                  CACCOMP
                 </p>
                 <h2 class="text-uppercase mt-4 mb-5">
-                  One Step Ahead This Season
+                  Centro Acadêmico de Ciência da Computação
                 </h2>
-                <div>
-                  <a href="#" class="primary-btn2 mb-3 mb-sm-0">learn more</a>
-                  <a href="#" class="primary-btn ml-sm-3 ml-0">see course</a>
-                </div>
               </div>
             </div>
           </div>
