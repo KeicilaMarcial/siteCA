@@ -1,7 +1,6 @@
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
+      <b>Versão</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
+    <strong>Copyright &copy; 2019 <a href="#">Alunos de Gerência de Projetos </a>.</strong> Todos os direitos reservados.
   </footer>

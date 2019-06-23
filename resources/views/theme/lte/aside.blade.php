@@ -26,7 +26,7 @@
         </li>
          <li>
           <a href="{{ url('projetos') }}">
-            <i class="fa fa-fw fa-file-archive-o"></i> <span>Projetos</span>
+            <i class="fa fa-fw fa-clone"></i> <span>Projetos</span>
           </a>
         </li>
          <li>
