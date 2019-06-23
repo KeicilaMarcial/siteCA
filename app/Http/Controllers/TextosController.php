@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\TextoRequest;
 use DB;
-use App\Moldels\Texto;
+use App\Models\Texto;
 use App\User;
 class TextosController extends Controller
 {
@@ -20,10 +20,10 @@ class TextosController extends Controller
                         'index', 'show','update'
                     ]);
     }
-     public function index()
+     public function textos()
     {
     	 $textos = Texto::all();
-        return view("textos")->with( ['textos' => $textos] );;
+        return view("textos")->with( ['textos' => $textos] );
     }
 
      public function create()
@@ -42,7 +42,7 @@ class TextosController extends Controller
        return redirect('/textos')->with('success','Texto Cadastrado');
     }
 
-   public function update(TextoRequest $request, $id)
+   public function updateTextos(TextoRequest $request, $id)
     {
     	
     	//$dataForm=$request->all();
@@ -51,6 +51,6 @@ class TextosController extends Controller
         	'descricao'=>$request->descricao
 
         ]);
-         return redirect('/textos')->with('success','Texto Cadastrado');
+         return redirect('/textos')->with('success','Atualizado com sucesso');
     }
 }

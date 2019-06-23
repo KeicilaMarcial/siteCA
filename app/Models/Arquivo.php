@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Moldels;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Texto extends Model
+class Arquivo extends Model
 {
      protected $fillable = [
-        'user_id','descricao',
+        'name', 'status', 'tipo','arquivo','user_id',
     ];
-    public function user()
+   public function user()
     {
         return $this->belongsTo('App\User');
     }

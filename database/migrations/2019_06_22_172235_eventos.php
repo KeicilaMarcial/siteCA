@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArquivosTable extends Migration
+class Eventos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateArquivosTable extends Migration
      */
     public function up()
     {
-        Schema::create('arquivos', function (Blueprint $table) {
+         Schema::create('eventos', function (Blueprint $table) {
             $table->bigIncrements('id');
-             $table->string('nome',100);
-            $table->integer('status'); //0-> Inativo, 1 -> Ativo
-            $table->BigInteger('user_id')->unsigned();
-            $table->integer('tipo');// 0-> documento privado, 1 -> documento publico
-            $table->string('arquivo');
+            $table->string('nome',100);
+            $table->string('link',256);
+            $table->text('descricao');
+            $table->string('imagem',100)->nullable();
+            $table->integer('status');
             $table->BigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
@@ -33,6 +33,6 @@ class CreateArquivosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('arquivos');
+        Schema::dropIfExists('eventos');
     }
 }

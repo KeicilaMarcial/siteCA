@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="{{asset('assets/lte/bower_components/font-awesome/css/font-awesome.min.css')}}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{asset('assets/lte/bower_components/Ionicons/css/ionicons.min.css')}}">
+   <!-- DataTables -->
+  <link rel="stylesheet" href="{{asset('assets/lte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/lte/dist/css/AdminLTE.min.css')}}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -41,7 +43,9 @@
     <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <section calss="content-header">
-    @yield('content')      
+       @yield('content')
+        
+      
     </section>
   </div>
    <!--Inicio Footer-->
@@ -59,5 +63,21 @@
     <script src="{{asset('assets/lte/dist/js/adminlte.min.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{asset('assets/lte/dist/js/demo.js')}}"></script>
+    <!-- DataTables -->
+<script src="{{asset('assets/lte/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/lte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
 </body>
 </html>

@@ -50,6 +50,10 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Projeto');
     }
+      public function eventos()
+    {
+        return $this->hasMany('App\Models\Evento');
+    }
 
      public function imagens()
     {

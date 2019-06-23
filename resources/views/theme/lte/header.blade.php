@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="/" class="logo">
+    <a href="{{ url('dashBoard') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>C</b>A</span>
       <!-- logo for regular state and mobile devices -->
@@ -46,21 +46,21 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{asset("assets/$theme/dist/img/user2-160x160.jpg")}}" class="user-image" alt="User Image">
+              <img src="{{asset("assets/$theme/dist/img/logo.png")}}" class="user-image" alt="User Image">
               <span class="hidden-xs">Administrador</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{asset("assets/$theme/dist/img/user2-160x160.jpg")}}" class="img-circle" alt="User Image">
+                <img src="{{asset("assets/$theme/dist/img/logo.png")}}" class="img-circle" alt="User Image">
               </li>
               <!-- Menu Body -->
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
+                <!--<div class="pull-left">
                   <a href="#" class="btn btn-default btn-flat">Alterar Senha</a>
-                </div>
+                </div>-->
                 <div class="pull-right">
                   <a href="#" class="btn btn-default btn-flat"  href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Moldels;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class \Imagem extends Model
+class Texto extends Model
 {
-   protected $fillable = [
-        'imagem', 'status','user_id',
+     protected $fillable = [
+        'user_id','descricao',
     ];
     public function user()
     {

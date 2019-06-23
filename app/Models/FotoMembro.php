@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Moldels;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class \FotoMembro extends Model
+class FotoMembro extends Model
 {
     protected $fillable = [
         'foto', 'status','user_id',
