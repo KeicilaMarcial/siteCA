@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Arquivo;
+use App\Models\Texto;
+use App\Models\Projeto;
+use App\Models\Evento;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -13,7 +16,15 @@ class IndexController extends Controller
      */
      public function index()
     {
-        return view("index");
+
+    	 $textos = Texto::all();
+    	 $projetos = Projeto::all()->sortBy('name');
+    	 $eventos = Evento::all()->sortBy('name');
+        return view("index")->with( ['textos' => $textos,
+    		'projetos'=>$projetos,
+    	    'eventos'=>$eventos]
+    		);
+        //return view("index");
     }
 
 }

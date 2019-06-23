@@ -60,10 +60,7 @@
                  <li class="nav-item">
                   <a class="nav-link" href="#eventos">Eventos</a>
                 </li>
-                 <li class="nav-item">
-                  <a class="nav-link" href="#membros">Membros</a>
-                </li>
-                </li>
+                
                  <li class="nav-item submenu dropdown">
                   <a
                     href="#"
@@ -118,20 +115,12 @@
           <div class="col-lg-6">
             <div class="h_blog_text">
               <div class="h_blog_text_inner left right">
-                <h4>Welcome to our Institute</h4>
+                <h4>Somos o CA da Ciência da Computação</h4>
+                 @foreach($textos as $t)
                 <p>
-                  Subdue whales void god which living don't midst lesser
-                  yielding over lights whose. Cattle greater brought sixth fly
-                  den dry good tree isn't seed stars were.
+                    {{$t->descricao}}
                 </p>
-                <p>
-                  Subdue whales void god which living don't midst lesser yieldi
-                  over lights whose. Cattle greater brought sixth fly den dry
-                  good tree isn't seed stars were the boring.
-                </p>
-                <a class="primary-btn" href="#">
-                  Learn More <i class="ti-arrow-right ml-1"></i>
-                </a>
+                 @endforeach
               </div>
             </div>
           </div>
@@ -140,16 +129,16 @@
     </section>
     <!--================ End About Area =================-->
 
-
+      @if(!empty($projetos))
     <!--================ Start Popular Courses Area =================-->
     <div class="popular_courses" id="projetos">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-5">
             <div class="main_title">
-              <h2 class="mb-3">Our Popular Courses</h2>
+              <h2 class="mb-3">Projetos desenvolvidos na computação</h2>
               <p>
-                Replenish man have thing gathering lights yielding shall you
+               Iniciações cientificas e projetos de pesquisa
               </p>
             </div>
           </div>
@@ -158,111 +147,40 @@
           <!-- single course -->
           <div class="col-lg-12">
             <div class="owl-carousel active_course">
+             @foreach($projetos as $p)
+             @if($p->status==1)
               <div class="single_course">
                 <div class="course_head">
-                  <img class="img-fluid" src="{{asset('assets/site/img/courses/c1.jpg')}}" alt="" />
+                  @php
+                    if ($p->imagem)
+                        $pathImage = url("storage/imagens/projetos/{$p->imagem}");
+                   @endphp
+              <!-- <img src="{{ $pathImage }}" class="img-circle"  height="200" width="200">-->
+                  <img class="{{asset('assets/site/img-fluid')}}" src="{{ $pathImage }}" alt="" />
                 </div>
                 <div class="course_content">
-                  <span class="price">$25</span>
-                  <span class="tag mb-4 d-inline-block">design</span>
-                  <h4 class="mb-3">
-                    <a href="course-details.html">Custom Product Design</a>
+                 <h4 class="mb-3">
+                    <a href="course-details.html">{{$p->nome}}</a>
                   </h4>
                   <p>
-                    One make creepeth man bearing their one firmament won't fowl
-                    meat over sea
+                    {{$p->descricao}}
                   </p>
                   <div
                     class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4"
                   >
-                    <div class="authr_meta">
-                      <img src="{{asset('assets/site/img/courses/author1.png')}}" alt="" />
-                      <span class="d-inline-block ml-2">Cameron</span>
-                    </div>
-                    <div class="mt-lg-0 mt-3">
-                      <span class="meta_info mr-4">
-                        <a href="#"> <i class="ti-user mr-2"></i>25 </a>
-                      </span>
-                      <span class="meta_info"
-                        ><a href="#"> <i class="ti-heart mr-2"></i>35 </a></span
-                      >
-                    </div>
                   </div>
+                 
                 </div>
-              </div>
-
-              <div class="single_course">
-                <div class="course_head">
-                  <img class="img-fluid" src="{{asset('assets/site/img/courses/c2.jpg')}}" alt="" />
-                </div>
-                <div class="course_content">
-                  <span class="price">$25</span>
-                  <span class="tag mb-4 d-inline-block">design</span>
-                  <h4 class="mb-3">
-                    <a href="course-details.html">Social Media Network</a>
-                  </h4>
-                  <p>
-                    One make creepeth man bearing their one firmament won't fowl
-                    meat over sea
-                  </p>
-                  <div
-                    class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4"
-                  >
-                    <div class="authr_meta">
-                      <img src="{{asset('assets/site/img/courses/author2.png')}}" alt="" />
-                      <span class="d-inline-block ml-2">Cameron</span>
-                    </div>
-                    <div class="mt-lg-0 mt-3">
-                      <span class="meta_info mr-4">
-                        <a href="#"> <i class="ti-user mr-2"></i>25 </a>
-                      </span>
-                      <span class="meta_info"
-                        ><a href="#"> <i class="ti-heart mr-2"></i>35 </a></span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="single_course">
-                <div class="course_head">
-                  <img class="{{asset('assets/site/img-fluid')}}" src="{{asset('assets/site/img/courses/c3.jpg')}}" alt="" />
-                </div>
-                <div class="course_content">
-                  <span class="price">$25</span>
-                  <span class="tag mb-4 d-inline-block">design</span>
-                  <h4 class="mb-3">
-                    <a href="course-details.html">Computer Engineering</a>
-                  </h4>
-                  <p>
-                    One make creepeth man bearing their one firmament won't fowl
-                    meat over sea
-                  </p>
-                  <div
-                    class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4"
-                  >
-                    <div class="authr_meta">
-                      <img src="{{asset('assets/site/img/courses/author3.png')}}" alt="" />
-                      <span class="d-inline-block ml-2">Cameron</span>
-                    </div>
-                    <div class="mt-lg-0 mt-3">
-                      <span class="meta_info mr-4">
-                        <a href="#"> <i class="ti-user mr-2"></i>25 </a>
-                      </span>
-                      <span class="meta_info"
-                        ><a href="#"> <i class="ti-heart mr-2"></i>35 </a></span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </div> 
+              @endif
+              @endforeach
             </div>
           </div>
         </div>
       </div>
     </div>
     <!--================ End Popular Courses Area =================-->
-
+      @endif
 
     <!--================ Start Events Area =================-->
     <div class="events_area" id="eventos">
@@ -270,21 +188,27 @@
         <div class="row justify-content-center">
           <div class="col-lg-5">
             <div class="main_title">
-              <h2 class="mb-3 text-white">Upcoming Events</h2>
-              <p>
+              <h2 class="mb-3 text-white">Próximos Eventos</h2>
+              <!--<p>
                 Replenish man have thing gathering lights yielding shall you
-              </p>
+              </p>-->
             </div>
           </div>
         </div>
         <div class="row">
+          @foreach($eventos as $e)
+          @if($e->status==1)
           <div class="col-lg-6 col-md-6">
             <div class="single_event position-relative">
               <div class="event_thumb">
-                <img src="{{asset('assets/site/img/event/e1.jpg')}}" alt="" />
+                 @php
+                    if ($e->imagem)
+                        $pathImage = url("storage/imagens/eventos/{$e->imagem}");
+                   @endphp
+                <img src="{{$pathImage}}" alt=""  width="555" height="400" />
               </div>
               <div class="event_details">
-                <div class="d-flex mb-4">
+                <!--<div class="d-flex mb-4">
                   <div class="date"><span>15</span> Jun</div>
 
                   <div class="time-location">
@@ -295,12 +219,10 @@
                       <span class="ti-location-pin mr-2"></span> Hilton Quebec
                     </p>
                   </div>
-                </div>
+                </div>-->
                 <p>
-                  One make creepeth man for so bearing their firmament won't
-                  fowl meat over seas great
-                </p>
-                <a href="#" class="primary-btn rounded-0 mt-3">View Details</a>
+                  {{$e->nome}}
+                <!--<a href="#" class="primary-btn rounded-0 mt-3">View Details</a>-->
               </div>
             </div>
           </div>
@@ -310,7 +232,7 @@
                 <img src="'{{asset('assets/site/img/event/e2.jpg')}}" alt="" />
               </div>-->
               <div class="event_details">
-                <div class="d-flex mb-4">
+                <!--<div class="d-flex mb-4">
                   <div class="date"><span>15</span> Jun</div>
 
                   <div class="time-location">
@@ -321,20 +243,20 @@
                       <span class="ti-location-pin mr-2"></span> Hilton Quebec
                     </p>
                   </div>
-                </div>
+                </div>-->
                 <p>
-                  One make creepeth man for so bearing their firmament won't
-                  fowl meat over seas great
+                  {{$e->descricao}}
                 </p>
-                <a href="#" class="primary-btn rounded-0 mt-3">View Details</a>
+                <a href="{{$e->link}}" class="primary-btn rounded-0 mt-3" target="_blank">Detahes</a>
               </div>
             </div>
           </div>
-
+            @endif
+            @endforeach
           <div class="col-lg-12">
             <div class="text-center pt-lg-5 pt-3">
               <a href="#" class="event-link">
-                View All Event <img src="{{asset('assets/site/img/next.png')}}" alt="" />
+                Ver todos os eventos<img src="{{asset('assets/site/img/next.png')}}" alt="" />
               </a>
             </div>
           </div>
@@ -344,7 +266,7 @@
     <!--================ End Events Area =================-->
 
     <!--================ Start Testimonial Area =================-->
-    <div class="testimonial_area section_gap" id="membros">
+    <!--<div class="testimonial_area section_gap" id="membros">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-5">
@@ -464,7 +386,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
     <!--================ End Testimonial Area =================-->
 
     <!--================Contact Area =================-->
@@ -477,13 +399,18 @@
             <div class="main_title">
               <h2 class="mb-3">Contato</h2>
               <p>
-                Replenish man have thing gathering lights yielding shall you
+               Em caso de duvidas, envie-nos um email
               </p>
+            </div>
+             <div class="main_title">
+              <h2 class="mb-3"></h2>
+              <i class="ti-email"></i>
+                <h3><a href="mailto:webmaster@example.com">emailca@ufes.com</a></h3>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-3">
+          <!--<div class="col-lg-3">
             <div class="contact_info">
               <div class="info_item">
                 <i class="ti-home"></i>
@@ -501,9 +428,10 @@
                 <p>Send us your query anytime!</p>
               </div>
             </div>
-          </div>
+          </div>-->
           <div class="col-lg-9">
-            <form
+
+            <!--<form
               class="row contact_form"
               action="contact_process.php"
               method="post"
@@ -567,7 +495,7 @@
                   Send Message
                 </button>
               </div>
-            </form>
+            </form>-->
           </div>
         </div>
       </div>
