@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Arquivo extends Model
 {
      protected $fillable = [
-        'name', 'status', 'tipo','arquivo','user_id',
+        'nome', 'status', 'tipo','arquivo','user_id',
     ];
    public function user()
     {

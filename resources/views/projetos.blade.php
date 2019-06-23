@@ -18,6 +18,7 @@
                 <thead>
                 <tr>
                   <th>Nome</th>
+                  <th>Status</th>
                   <th>Editar</th>
                   <th>Excluir</th>
                 </tr>
@@ -26,6 +27,12 @@
                @foreach ($projetos as $p)
                 <tr>
                   <td>{{$p->nome}}</td>
+                  <td>@if($p->status==0)
+                      <p>Inativo</p>
+                      @else
+                      <p>Ativo</p>
+                      @endif
+                  </td>
                   <td><a href="#editarProjeto{{$p->id}}" data-toggle="modal" data-target="#editarProjeto{{$p->id}}"><i class="fa fa-edit"></i></i></a></td>
                   <td><a href="#"
                     onclick="
@@ -34,7 +41,7 @@
                       event.preventDefault();
                       document.getElementById('delete-form{{$p->id}}').submit();
 
-                    } "><i class="fa fa-fw fa-remove"></i>{{$p->id}}</i></a></td>
+                    } "><i class="fa fa-fw fa-remove"></i></i></a></td>
                       <form  id="delete-form{{$p->id}}"  method="POST" action="{{ action('ProjetosController@destroy',$p->id) }}" enctype="multipart/form-data">
                         <input type="hidden" name="_method" value="delete">
                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -49,8 +56,9 @@
               </div>
               <div class="modal-body">
               <!-- form start -->
-            <form role="form" method="PUT" action="{{ action('ProjetosController@update',$p->id) }}" enctype="multipart/form-data">
+            <form role="form" method="post" action="{{ action('ProjetosController@update',$p->id) }}" enctype="multipart/form-data">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              @method('GET')
                 <input type="hidden" name="user_id" value="{{ $p->id}}">
               <div class="box-body">
                 <div class="form-group">
@@ -62,15 +70,6 @@
                   <label>Descrição</label>
                   <textarea class="form-control" rows="3" name="descricao" required>  {{ $p->descricao ?? old('descricao') }}</textarea>
                 </div>
-                <div class="form-group">
-                  @php
-                    if ($p->imagem)
-                        $pathImage = url("storage/imagens/projetos/{$p->imagem}");
-                @endphp
-               <img src="{{ $pathImage }}" class="img-circle"  height="200" width="200">
-               <p class="help-block">Imagem Atual.</p>
-              </div>
-              
                 <!-- radio -->
                 <div class="form-group">
                     <label>Status</label><br>
@@ -101,6 +100,16 @@
                   <!--<p class="help-block">Example block-level help text here.</p>-->
                 </div>
               </div>
+                   <div class="form-group">
+                  @php
+                    if ($p->imagem)
+                        $pathImage = url("storage/imagens/projetos/{$p->imagem}");
+                @endphp
+               <img src="{{ $pathImage }}" class="img-circle"  height="150" width="150">
+               <p class="help-block">Imagem Atual.</p>
+              </div>
+              
+              
               <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Salvar</button>
@@ -157,7 +166,7 @@
                   <label>Descrição</label>
                   <textarea class="form-control" rows="3" name="descricao" required></textarea>
                 </div>
-                <!-- radio -->
+               <!-- radio -->
                <div class="form-group">
                   <label>Status</label><br>
                 <label>

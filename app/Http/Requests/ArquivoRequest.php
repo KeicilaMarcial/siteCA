@@ -27,7 +27,7 @@ class ArquivoRequest extends FormRequest
             'nome' =>"required",
             'status' =>"required",
             'tipo' =>"required",
-            'arquivo' =>"arquivo",
+            'arquivo' =>"nullable"
         ];
     }
 }

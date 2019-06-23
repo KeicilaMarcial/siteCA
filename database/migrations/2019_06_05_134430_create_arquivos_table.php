@@ -17,7 +17,6 @@ class CreateArquivosTable extends Migration
             $table->bigIncrements('id');
              $table->string('nome',100);
             $table->integer('status'); //0-> Inativo, 1 -> Ativo
-            $table->BigInteger('user_id')->unsigned();
             $table->integer('tipo');// 0-> documento privado, 1 -> documento publico
             $table->string('arquivo');
             $table->BigInteger('user_id')->unsigned();
@@ -25,7 +24,6 @@ class CreateArquivosTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

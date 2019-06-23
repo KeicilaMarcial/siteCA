@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImagemsTable extends Migration
+class CreateImagensTable extends Migration//Refente ao Banner do site
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateImagemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('imagems', function (Blueprint $table) {
+        Schema::create('imagens', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('imagem',100)->nullable();
             $table->integer('status');

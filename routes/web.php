@@ -35,7 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/storeEvento', 'EventosController@store')->name('store');
     Route::get('/updateEvento/{id}', 'EventosController@update')->name('update');
 	Route::delete('/destroyEvento/{id}', 'EventosController@destroy')->name('destroy');
-	Route::get('/arquivos', 'ArquivosController@arquivos')->name('arquivos');
+	Route::get('/arquivos_1', 'ArquivosController@arquivos')->name('arquivos');
 	Route::post('/storeArquivo', 'ArquivosController@store')->name('store');
 	Route::get('/updateArquivo/{id}', 'ArquivosController@update')->name('update');
 	Route::delete('/destroyArquivo/{id}', 'ArquivosController@destroy')->name('destroy');

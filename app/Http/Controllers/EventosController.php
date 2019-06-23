@@ -57,7 +57,7 @@ class EventosController extends Controller
 
     public function update(EventoRequest $request, $id)
     {   
-       // dd($request->imagem);
+       //dd($request->all());
          $data = ($request->all());
          $evento=Evento::find($id);
         //$dataForm=$request->all();
@@ -71,7 +71,6 @@ class EventosController extends Controller
                  $data['imagem'] = $nameFile;
                 // Faz o upload:
                 $upload = $request->imagem->storeAs('/imagens/eventos', $nameFile);
-                dd($request->imagem);
                  $update= $evento->update($data);
                 }
             if ($request->imagem==null){
@@ -82,7 +81,7 @@ class EventosController extends Controller
                  'status'   =>$request->status
             ]);
           }
-       // return redirect('/projetos')->with('success','Atualizado com sucesso');    
+       return redirect('/eventos')->with('success','Atualizado com sucesso');    
     }
 
      public function destroy($id)

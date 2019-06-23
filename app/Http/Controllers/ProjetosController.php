@@ -21,6 +21,7 @@ class ProjetosController extends Controller
 
      public function store(ProjetoRequest $request)
     {
+       // dd($request->imagem);
     	 $data = $request->all();
     	//Define o valor default para a variável que contém o nome da imagem 
     	$nameFile = null;
@@ -70,15 +71,11 @@ class ProjetosController extends Controller
 
     public function update(ProjetoRequest $request, $id)
     {   
-       // dd($request->all());
+       
          $data = ($request->all());
          $projeto=Projeto::find($id);
         //$dataForm=$request->all();
-
-
-
-
-         if($request->imagem){
+        /* if($request->imagem){
             $imagem= $request->imagem;
             $extensao = $imagem->getClientOriginalExtension();
         }
@@ -88,8 +85,8 @@ class ProjetosController extends Controller
             $alun->foto='\foto_cadastro_aluno/aluno-id_'.$alun->id.'.'.$extensao;
             $alun->save();
         }
-        
-          if (!$request->hasFile('imagem')) { 
+        */
+          if ($request->has('imagem')) { 
 
                  // Define um aleatório para o arquivo baseado no timestamps atual
                  $name = uniqid(date('HisYmd'));
@@ -100,7 +97,7 @@ class ProjetosController extends Controller
                  $data['imagem'] = $nameFile;
                 // Faz o upload:
                 $upload = $request->imagem->storeAs('/imagens/projetos', $nameFile);
-                dd($request->imagem);
+                //dd($request->imagem);
                  $update= $projeto->update($data);
                 }
             if ($request->imagem==null){

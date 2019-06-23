@@ -1,4 +1,4 @@
-	@extends("theme.$theme.layout")
+@extends("theme.$theme.layout")
 @section('content')
 <section class="content">
       
@@ -20,7 +20,8 @@
                 <tr>
                   <th>Nome</th>
                   <th>Tipo</th>
-                  <th>Visualizar</th>
+                  <th>status</th>
+                  <th>Download</th>
                   <th>Editar</th>
                   <th>Excluir</th>
                 </tr>
@@ -29,6 +30,30 @@
                @foreach ($arquivos as $a)
                 <tr>
                   <td>{{$a->nome}}</td>
+                  <td>
+                    @if($a->tipo==0)
+                    <p>Privado</p>
+                    @else
+                    <p>Público</p>
+                    @endif
+                  </td>
+                    <td>
+                    @if($a->status==0)
+                    <p>Inativo</p>
+                    @else
+                    <p>Ativo</p>
+                    @endif
+                  </td>
+                  <td>
+                      @php
+                        if ($a->arquivo)
+                        $pathArquivo = url("storage/arquivos/{$a->arquivo}");
+                      @endphp
+                    <a href="{{ $pathArquivo }}" download>
+                    <i class="fa fa-fw fa-download"></i>
+                    </a>
+                   
+                  </td>
                   <td><a href="#editarProjeto{{$a->id}}" data-toggle="modal" data-target="#editarEvento{{$a->id}}"><i class="fa fa-edit"></i></i></a></td>
                   <td><a href="#"
                     onclick="
@@ -36,8 +61,7 @@
                     if(result){
                       event.preventDefault();
                       document.getElementById('delete-form{{$a->id}}').submit();
-
-                    } "><i class="fa fa-fw fa-remove"></i>{{$a->id}}</i></a></td>
+                    } "><i class="fa fa-fw fa-remove"></i></i></a></td>
                       <form  id="delete-form{{$a->id}}"  method="POST" action="{{ action('ArquivosController@destroy',$a->id) }}" enctype="multipart/form-data">
                         <input type="hidden" name="_method" value="delete">
                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -78,11 +102,11 @@
                   <div class="radio" >
                     <label><label>Tipo</label><br>
                     @if($a->status==0)
-                      <input type="radio" name="status" id="op1" value="1"><label>Público</label><br>
-                      <input type="radio" name="status" id="op1" value="0" checked><label>Privado</label>
+                      <input type="radio" name="tipo" id="op1" value="1"><label>Público</label><br>
+                      <input type="radio" name="tipo" id="op1" value="0" checked><label>Privado</label>
                     @else
-                     <input type="radio" name="status" id="op1" value="1"checked><label>Público</label><br>
-                      <input type="radio" name="status" id="op1" value="0" ><label>Privado</label>
+                     <input type="radio" name="tipo" id="op1" value="1"checked><label>Público</label><br>
+                      <input type="radio" name="tipo" id="op1" value="0" ><label>Privado</label>
                     @endif
                   </div>
               </div>
@@ -101,11 +125,13 @@
         </div>
         <!-- /.modal -->
                 </tr>
-                @endforeach
+     @endforeach
                 </tbody>
                 <tfoot>
                 <tr>
                   <th>Nome</th>
+                  <th>Tipo</th>
+                  <th>Download</th>
                   <th>Editar</th>
                   <th>Excluir</th>
                 </tr>
@@ -150,11 +176,16 @@
                 <div class="form-group">
                   <div class="radio" >
                     <label><label>Tipo</label><br>
-                      <input type="radio" name="status" id="op1" value="1"><label>Público</label><br>
-                      <input type="radio" name="status" id="op1" value="0" checked><label>Privado</label>
+                      <input type="radio" name="tipo" id="op1" value="1"><label>Público</label><br>
+                      <input type="radio" name="tipo" id="op1" value="0" checked><label>Privado</label>
                     </label>
                   </div>
               </div>
+               <div class="form-group">
+                  <label for="exampleInputFile">Arquivo</label>
+                  <input type="file" id="exampleInputFile" name="arquivo" required>
+                  <p class="help-block">Somente extensão ".pdf".</p>
+                </div>
               <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Salvar</button>
