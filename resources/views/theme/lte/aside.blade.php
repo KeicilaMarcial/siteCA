@@ -15,7 +15,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">NAVEGAÇÃO</li>
         <li>
-          <a href="{{ url('arquivos') }}">
+          <a href="{{ url('arquivos_1') }}">
             <i class="fa fa-fw fa-file-pdf-o"></i> <span>Arquivos</span>
           </a>
         </li>
@@ -34,10 +34,9 @@
             <i class="fa fa-fw fa-file-archive-o"></i> <span>Eventos</span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-fw fa-file-image-o"></i>
-            <span>Imagens</span>
+         <li>
+          <a href="{{ url('imagens_1') }}">
+            <i class="fa fa-fw fa-file-image-o"></i> <span>Imagens</span>
           </a>
         </li>
       

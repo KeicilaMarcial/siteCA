@@ -60,17 +60,9 @@
                  <li class="nav-item">
                   <a class="nav-link" href="#eventos">Eventos</a>
                 </li>
-                
-                 <li class="nav-item submenu dropdown">
-                  <a
-                    href="#"
-                    class="nav-link dropdown-toggle"
-                    data-toggle="dropdown"
-                    role="button"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    >Documentos</a
-                  >
+                 <li class="nav-item">
+                  <a class="nav-link"  href="{{url('documentosSite')}}">Documentos</a>
+                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#contato">Contato</a>
                 </li>
@@ -109,7 +101,7 @@
         <div class="row h_blog_item">
           <div class="col-lg-6">
             <div class="h_blog_img">
-              <img class="img-fluid" src="{{asset('assets/site/img/about.png')}}" alt="" />
+              <img class="img-fluid" src="{{asset('assets/site/img/alunos.jpg')}}" alt="" />
             </div>
           </div>
           <div class="col-lg-6">
@@ -148,18 +140,18 @@
           <div class="col-lg-12">
             <div class="owl-carousel active_course">
              @foreach($projetos as $p)
-             @if($p->status==1)
-              <div class="single_course">
+              @if($p->status==1)
+               <div class="single_course">
                 <div class="course_head">
-                  @php
+                   @php
                     if ($p->imagem)
                         $pathImage = url("storage/imagens/projetos/{$p->imagem}");
                    @endphp
-              <!-- <img src="{{ $pathImage }}" class="img-circle"  height="200" width="200">-->
-                  <img class="{{asset('assets/site/img-fluid')}}" src="{{ $pathImage }}" alt="" />
+                  <img class="img-fluid" src="{{$pathImage}}"  height="283" width="360" alt="" />
                 </div>
                 <div class="course_content">
-                 <h4 class="mb-3">
+                 
+                  <h4 class="mb-3">
                     <a href="course-details.html">{{$p->nome}}</a>
                   </h4>
                   <p>
@@ -169,9 +161,9 @@
                     class="course_meta d-flex justify-content-lg-between align-items-lg-center flex-lg-row flex-column mt-4"
                   >
                   </div>
-                 
                 </div>
-              </div> 
+              </div>
+
               @endif
               @endforeach
             </div>
@@ -247,7 +239,7 @@
                 <p>
                   {{$e->descricao}}
                 </p>
-                <a href="{{$e->link}}" class="primary-btn rounded-0 mt-3" target="_blank">Detahes</a>
+                <a href="{{$e->link}}" class="primary-btn rounded-0 mt-3" target="_blank">Detalhes</a>
               </div>
             </div>
           </div>
@@ -400,36 +392,37 @@
               <h2 class="mb-3">Contato</h2>
               <p>
                Em caso de duvidas, envie-nos um email
-              </p>
-            </div>
-             <div class="main_title">
-              <h2 class="mb-3"></h2>
-              <i class="ti-email"></i>
-                <h3><a href="mailto:webmaster@example.com">emailca@ufes.com</a></h3>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <!--<div class="col-lg-3">
+              </p><br><br>
+                <div class="row">
+          <div class="col-lg-12">
             <div class="contact_info">
               <div class="info_item">
                 <i class="ti-home"></i>
-                <h6>California, United States</h6>
-                <p>Santa monica bullevard</p>
+                <h6>Universidade Federal do Espitiro Santo</h6>
+                <p>Campus - São Mateus</p>
               </div>
-              <div class="info_item">
+              <!--<div class="info_item">
                 <i class="ti-headphone"></i>
                 <h6><a href="#">00 (440) 9865 562</a></h6>
                 <p>Mon to Fri 9am to 6 pm</p>
-              </div>
+              </div>-->
               <div class="info_item">
                 <i class="ti-email"></i>
-                <h6><a href="#">support@colorlib.com</a></h6>
-                <p>Send us your query anytime!</p>
+                <h6><a href="mailto:webmaster@example.com">ca@ufes.com</a></h6>
+                <p>Envie-nos um email!</p>
               </div>
             </div>
-          </div>-->
-          <div class="col-lg-9">
+          </div>
+            </div>
+             <!--<div class="main_title">
+              <h2 class="mb-3"></h2>
+              <i class="ti-email"></i>
+                <h3><a href="mailto:webmaster@example.com">ca@ufes.com</a></h3>
+            </div>-->
+          </div>
+        </div>
+        
+        <!--  <div class="col-lg-9">-->
 
             <!--<form
               class="row contact_form"
@@ -496,7 +489,7 @@
                 </button>
               </div>
             </form>-->
-          </div>
+        <!--  </div>-->
         </div>
       </div>
     </section>
@@ -513,10 +506,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
           <div class="col-lg-4 col-sm-12 footer-social">
-            <a href="#"><i class="ti-facebook"></i></a>
-            <a href="#"><i class="ti-twitter"></i></a>
-            <a href="#"><i class="ti-dribbble"></i></a>
-            <a href="#"><i class="ti-linkedin"></i></a>
+            <a href="https://www.facebook.com/groups/Cienciacompceunes"><i class="ti-facebook"></i></a>
+            <!--<a href="#"><i class="ti-twitter"></i></a>-->
+            <a href="#"><i class="ti-instagram"></i></a>
+            <!--<a href="#"><i class="ti-linkedin"></i></a>-->
           </div>
         </div>
       </div>
