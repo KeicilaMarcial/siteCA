@@ -177,7 +177,8 @@ return [
 
        //adicionado
      //   Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,
-     //   Collective\Html\HtmlServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+       // Collective\Html\HtmlServiceProvider::class,
 
     ],
 
